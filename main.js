@@ -31,10 +31,11 @@ for (let i = 1; i < 9; i++) {
         var price = splitname[1]
         var page = i
         imgurl = getXPath(`/html/body/div/main/div/div[${nb}]/img/@src`, document, 5)[0]
-        idproduct = getXPath(`/html/body/div/main/div/div[${nb}]/div/a/@href`, document, 5)[0]
+        idproduct = getXPath(`/html/body/div/main/div/div[${nb}]/div/a/@href`, document, 5)[0] 
         idproduct = idproduct.replace("/product/", "");
+        tag = getXPath(`/html/body/div/main/div/div[${nb}]/div/span`, document, 5)[0]
         nb+=1
-        allProductsArray.push({id: idproduct, name: name, price: price, img: imgurl, page: page})
+        allProductsArray.push({id: idproduct, name: name, price: price, tag: tag, img: imgurl, page: page})
       });
 
       var productsJson = JSON.stringify(allProductsArray);
